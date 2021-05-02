@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basketball!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container text-center">
+    <h1 class="jumbotron">Latest Mars Data</h1>
+    <a href = "http://127.0.0.1:5000/scrape">scrape new data</a>
+    <div class = "row">
+        <h1>Latest Mars News</h1>        
+    </div>
+    <div class = "row">
+        <h1>{{ mars_query['Red Planet News']['title'] }}</h1>
+        <br>
+        <p> {{ mars_query['Red Planet News']['body'] }}</p>
+    </div>
+    <div class = "row">
+        <div class = "col-7">
+            <div class = "row">
+                <h1 class = 'mr-auto'>Featured Image</h1>
+            </div>
+            <div class = "row">
+                <img class = "img-fluid" src = "{{ mars_query['Featured Image']|safe }}">
+            </div>
+        </div>
+        <table class = "col-5 table">
+            {{ mars_query['Mars Facts']|safe }}
+        </table>
+    </div>
+    <div class = "row">
+        <h1>Mars Hemispheres</h1>
+        <div class = "col-3">
+            <p> {{ mars_query['Hemisphere Images'][0]['title'] }}</p>
+                <div class = "row"> 
+                    <img src = "{{ mars_query['Hemisphere Images'][0]['img_url']|safe }}"> 
+                </div>
+        </div>
+        <div class = "col-3">
+            <p> {{ mars_query['Hemisphere Images'][1]['title'] }} </p>
+                <div class = "row"> 
+                    <img src = "{{ mars_query['Hemisphere Images'][1]['img_url']|safe }}"> 
+                </div>
+        </div>
+        <div class = "col-3">
+            <p> {{ mars_query['Hemisphere Images'][2]['title'] }}</p>
+                <div class = "row"> 
+                    <img src = "{{ mars_query['Hemisphere Images'][2]['img_url']|safe }}"> 
+                </div>
+        </div>
+        <div class = "col-3">
+            <p> {{ mars_query['Hemisphere Images'][3]['title'] }}</p>
+                <div class = "row">
+                   <img src = "{{ mars_query['Hemisphere Images'][3]['img_url']|safe }}"> 
+                </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
